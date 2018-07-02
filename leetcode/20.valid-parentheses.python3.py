@@ -1,3 +1,4 @@
+
 #
 # [20] Valid Parentheses
 #
@@ -57,35 +58,32 @@
 # 
 # 
 #
+
 class Solution:
     def isValid(self, s):
         """
         :type s: str
         :rtype: bool
         """
-        n1 = s.find('{')
-        n2 = s.find('}')
-        n3 = s.find('[')
-        n4 = s.find(']')
-        n5 = s.find('(')
-        n6 = s.find(')')
-        print(n1)
-        print(n2)
-        print(n3)
-        print(n4)
-        print(n5)
-        print(n6)
+        temp = []
         if len(s) == 0:
             return True
-        elif len(s)%2 != 0:
+        elif s.count('[') != s.count(']') or s.count('{') != s.count('}') or s.count('(') != s.count(')'):
             return False
         else:
-            if s.count('{') != s.count('}') or s.count('[') != s.count(']') or s.count('(') != s.count(')'):
-                return False
-            elif (n2 - n1 > 0 and ( n2 - n1 ) % 2 == 0) or (n4 - n3 > 0 and (n4 - n3) % 2 == 0) or (n6 - n5 > 0 and ( n6 - n5) % 2 == 0): 
-                return False
-            else:
+            for st in s:
+                if st == "{" or st == "[" or st =="(":
+                    temp.append(st)
+                if st == "}" and temp[len(temp)-1] == "{":
+                    temp.pop()
+                if st == "]" and temp[len(temp)-1] == "[":
+                    temp.pop()
+                if st == ")" and temp[len(temp)-1] == "(":
+                    temp.pop()
+            if(len(temp) == 0):
                 return True
-        
+            else:
+                return False
+                    
 if __name__ == '__main__':
-    print(Solution().isValid("(([]){})"))
+    print(Solution().isValid("]"))

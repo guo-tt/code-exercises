@@ -1,4 +1,4 @@
-#!C:\Python27\Python
+#!C:\Users\ttguo.SAT\anaconda\python
 
 class Solution(object):
     def twoSum(self, nums, target):
