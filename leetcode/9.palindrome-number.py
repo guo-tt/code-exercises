@@ -1,4 +1,3 @@
-#!C:\Python27\Python
 
 class Solution(object):
     def isPalindrome(self, x):
