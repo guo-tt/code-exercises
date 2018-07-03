@@ -69,4 +69,12 @@ class Solution:
         :type val: int
         :rtype: int
         """
+        length = 0
+        for i in range(len(nums)):
+            if nums[i] == val:
+                length += 1
+        return length
+
+if __name__ == '__main__':
+    print(Solution().removeElement([3,2,2,3],3))
         
