@@ -51,4 +51,11 @@ class Solution:
         :type target: int
         :rtype: int
         """
-        
+        for i in nums:            
+            if i >= target:
+                return nums.index(i) 
+
+        return len(nums)
+
+if __name__ == "__main__":
+    print(Solution().searchInsert([1,3,5,8],2))
