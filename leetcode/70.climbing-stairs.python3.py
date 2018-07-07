@@ -50,6 +50,6 @@ class Solution:
         return cur
 
 if __name__ == "__main__":
-    print(Solution().climbStairs(35))
+    print(Solution().climbStairs(4))
 
         
