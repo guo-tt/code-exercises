@@ -77,12 +77,33 @@ class Solution:
         :type B: str
         :rtype: bool
         """
-        if len(A) != len(B):
+        k = 1
+        i = 0
+        if len(A) != len(B) or len(A) == 1 or len(B) == 1:
             return False
+        elif len(A) == 0 or len(B) == 0:
+            return False
+        elif len(A) == 2 and len(B) == 2:
+            if A[0] == B[1] and A[1] == B[0]:
+                return True
+            else:
+                return False
         else:
-            for i in range(0,len(A)):
-                
+            while i < len(A)-1:
+                if A[i] == B[i]:
+                    k += 1
+                else:
+                    if A[i] == B[i+1] and A[i+1] == B[i]:
+                        i += 1 
+                    else:
+                        return False 
+                i += 1
+
+            if k == len(A):
+                return False 
+            else:
+                return True 
 
 if __name__ == "__main__":
-    print(Solution().buddyStrings("ab","ba"))
+    print(Solution().buddyStrings("abab","abab"))
         
