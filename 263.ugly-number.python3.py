@@ -58,3 +58,6 @@ class Solution:
                 num = num/i
 
         return num == 1 
+
+if __name__ == '__main__':
+    print(Solution().isUgly(8))
