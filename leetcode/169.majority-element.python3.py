@@ -35,7 +35,11 @@ class Solution:
         :type nums: List[int]
         :rtype: int
         """
-        
+        digits = {}
+        for i in nums:
+            digits[i] = digits.get(i,0) + 1
+            if digits[i] > len(nums)/2:
+                return i
 
 if __name__ == '__main__':
     print(Solution().majorityElement([2,2,1,1,1,2,2]))
