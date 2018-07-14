@@ -31,16 +31,20 @@ class Solution:
         :type num: int
         :rtype: int
         """
-        sum = 0
-        while(num/10 >= 1):
-            sum += int(num%10)
-            num = int(num/10)
-        sum = sum + num
-        num = sum
-        if num/10 < 1:
-            return num
-        else:    
-            return self.addDigits(num)
+        # sum = 0
+        # while(num/10 >= 1):
+        #     sum += int(num%10)
+        #     num = int(num/10)
+        # sum = sum + num
+        # num = sum
+        # if num/10 < 1:
+        #     return num
+        # else:    
+        #     return self.addDigits(num)
+        if num == 0:
+            return 0
+        else:
+            return 1 + (num - 1) % 9
 
 if __name__ == '__main__':
     print(Solution().addDigits(38))
