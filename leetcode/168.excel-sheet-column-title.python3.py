@@ -62,5 +62,5 @@ class Solution:
         return res        
 
 if __name__ == '__main__':
-    print(Solution().convertToTitle(28))
+    print(Solution().convertToTitle(701))
         
