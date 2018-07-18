@@ -39,11 +39,12 @@ class Solution:
         :type nums: List[int]
         :rtype: bool
         """
-        for i in range(0,len(nums)):
-            print(nums[i])
-            if nums[i] in nums[i+1,]:
-                return True
-        return False
+        # for i in range(0,len(nums)):
+        #     print(nums[i])
+        #     if nums[i] in nums[i+1,]:
+        #         return True
+        # return False
+        return len(nums) != len(set(nums))
 
 if __name__ == '__main__':
     print(Solution().containsDuplicate([1,1,2,4,3]))
