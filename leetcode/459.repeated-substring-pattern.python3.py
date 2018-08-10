@@ -47,4 +47,19 @@ class Solution:
         :type s: str
         :rtype: bool
         """
+        # i = 1
+        # while i < len(s):
+        #     subS =  s[:i]
+        #     k = 2 
+        #     while len(subS) * k <= len(s):
+        #         if subS * k == s:
+        #             return True
+        #         k += 1
+        #     i += 1
+            
+        # return False
+        return s in s[1:] + s[:-1]
         
+if __name__ == "__main__":
+    print(Solution().repeatedSubstringPattern("babbabbabbabbab"))
+
