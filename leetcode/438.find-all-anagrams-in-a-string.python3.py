@@ -65,37 +65,64 @@ class Solution:
         #         output.append(i)
 
         # return output
-        d = collections.defaultdict(int)
-        ns = len(s)
-        np = len(p)
-        ans = []
-        
-        for c in p:	
-            d[c] -= 1
-        
-        for i in range(0,ns):
-            if i < np:
-                d[s[i]] += 1
-                if not d[s[i]]: 
-                    del d[s[i]]
-            else:
-                if not d: 
-                    ans.append(i-np)
 
-                d[s[i-np]] -= 1
-
-                if not d[s[i-np]] : 
-                    del d[s[i-np]]
-                
-                d[s[i]] += 1
-                
-                if not d[s[i]]: 
-                    del d[s[i]]
+        # d = collections.defaultdict(int)
+        # ns = len(s)
+        # np = len(p)
+        # ans = []
         
-        if not d: 
-            ans.append(i-np+1)
+        # for c in p:	
+        #     d[c] -= 1
+        
+        # for i in range(0,ns):
+        #     if i < np:
+        #         d[s[i]] += 1
+        #         if not d[s[i]]: 
+        #             del d[s[i]]
+        #     else:
+        #         if not d: 
+        #             ans.append(i-np)
+
+        #         d[s[i-np]] -= 1
+
+        #         if not d[s[i-np]] : 
+        #             del d[s[i-np]]
+                
+        #         d[s[i]] += 1
+                
+        #         if not d[s[i]]: 
+        #             del d[s[i]]
+        
+        # if not d: 
+        #     ans.append(i-np+1)
             
-        return ans
+        # return ans
+
+        left, right = 0, -1
+
+        target_counter, target_len = collections.Counter(p), len(p)
+        # print(target_counter)
+        cur_dict = {}
+
+        found_indexes = []
+
+        while left < len(s):
+
+            if right + 1 < len(s) and right - left + 1 < target_len:
+                cur_dict[s[right + 1]] = cur_dict.setdefault(s[right + 1], 0) + 1
+                right += 1
+
+            else:
+                cur_dict[s[left]] -= 1
+                if cur_dict[s[left]] == 0:
+                    cur_dict.pop(s[left])
+
+                left += 1
+
+            if right - left + 1 == target_len and target_counter == cur_dict:
+                found_indexes.append(left)
+
+        return found_indexes
     
 if __name__ == "__main__":
     print(Solution().findAnagrams("cbaebabacd","abc"))
