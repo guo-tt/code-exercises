@@ -46,14 +46,15 @@ class Solution:
         :type nums2: List[int]
         :rtype: List[int]
         """
-        output = []
-        if len(nums1) < len(nums2):
-            for i in nums1:
-                if i in nums2:
-                    output.append(i)
-        else:
-            for j in nums2:
-                if j in nums1:
-                    output.append(j)
+        # output = []
+        # if len(nums1) < len(nums2):
+        #     for i in nums1:
+        #         if i in nums2:
+        #             output.append(i)
+        # else:
+        #     for j in nums2:
+        #         if j in nums1:
+        #             output.append(j)
 
-        return list(set(output)) 
+        # return list(set(output)) 
+        return [num for num in set(nums1) if num in nums2]
