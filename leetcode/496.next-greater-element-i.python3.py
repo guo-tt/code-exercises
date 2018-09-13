@@ -71,4 +71,4 @@ class Solution:
 
 
 if __name__ == "__main__":
-    print(Solution().nextGreaterElement([2,4],[1,2,3,4]))
+    print(Solution().nextGreaterElement([2,4],[2,4,3,1]))
