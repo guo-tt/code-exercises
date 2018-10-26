@@ -37,18 +37,11 @@ class Solution:
         :type k: int
         :rtype: str
         """
-        output = ""
-        if len(s) < k:
-            return s[::-1]
-        elif len(s) < 2*k:
-            return s[k-1::-1] + s[k:]
-        else:
-            for i in range(0,len(s)):
-                if (i+1)%2 == 0:
-                    output += s[i:i-k:-1]
-            return output
-        
-if __name__ == "__main__":
-    print(Solution().reverseStr("abcdefg",2))
-
+        res = ''
+        i = 0 
+        while i < len(s): 
+            res = res + s[i:i+k][::-1] 
+            res = res + s[i+k:i+(k*2)] 
+            i = i + (k * 2) 
+        return res
         
