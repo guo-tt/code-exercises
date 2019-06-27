@@ -12,7 +12,7 @@ class Solution(object):
                 return [i, nums.index(target - nums[i])]
 
 if __name__ == '__main__':
-    print Solution().twoSum([2,3,7],9)
+    print(Solution().twoSum([2,3,7],9))
 
         
         
