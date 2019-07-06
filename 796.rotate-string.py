@@ -4,13 +4,10 @@
 # [796] Rotate String
 #
 class Solution:
-    def rotateString(self, A: str, B: str):
+    def rotateString(self, A, B):
         if len(A) != len(B):
             return False
-        new = A + A
-        if B in new:
-            return True
-        else:
-            return False
+        S = A + A  
+        return B in S
         
 
