@@ -11,15 +11,16 @@
 #         self.right = None
 
 class Solution:
-    def level(self, l, root):
-        if root:
-            l = l + 1 
-            return min(self.level(l, root.right), self.level(l, root.left)) 
-        else:
-            return l
-
     def minDepth(self, root):
-        l = 0
-        return self.level(l, root)
+        if root == None:
+            return 0
+
+        if not root.left:
+            return 1 + self.minDepth(root.right)
+        elif not root.right:
+            return 1 + self.minDepth(root.left)
+        else:
+            return 1 + min(self.minDepth(root.left), self.minDepth(root.right))
+
         
 
